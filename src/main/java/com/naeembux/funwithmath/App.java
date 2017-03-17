@@ -1,13 +1,26 @@
 package com.naeembux.funwithmath;
 
+import javax.swing.*;
+import java.awt.*;
 /**
- * Hello world!
- *
+ * Developed By & Property of Naeem Bux.
+ *  Student ID: 213003775
  */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        SwingUtilities.invokeLater((new Runnable() {
+            @Override
+            public void run() {
+
+                MathBook math = new MathBook("Fun with Math");
+                math.setDefaultLookAndFeelDecorated(true);
+                math.setSize(300, 300);
+                math.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                math.setVisible(true);
+            }
+        }));
     }
+
 }
