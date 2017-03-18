@@ -39,4 +39,12 @@
       <version>RELEASE</version>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>spring.code</id>
+      <url>http://maven.spring.com/maven2/lib</url>
+    </repository>
+  </repositories>
 </project>
+

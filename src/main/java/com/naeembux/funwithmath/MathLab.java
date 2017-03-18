@@ -1,47 +1,55 @@
 package com.naeembux.funwithmath;
 
+import org.junit.Test;
+
 /**
  * Created by Bux_Life on 2017/03/18.
  */
 public class MathLab {
 
-    public static float addition(float a, float b){
+    public static double addition(double a, double b){
         return a + b;
     }
     public static int addition(int a, int b){
         return a+b;
     }
+
     //--
+
     public static int subtraction(int a, int b){
         return a-b;
     }
-    public static float subtraction(float a, float b){
+    public static double subtraction(double a, double b){
         return a-b;
     }
     //--
-    public static float division(float a, float b){
+
+    public static double division(double a, double b){
         return a/b;
     }
     public static int division(int a, int b){
         return a/b;
     }
     //--
-    public static float multiplication(float a, float b){
+
+    public static double multiplication(double a, double b){
         return a*b;
     }
     public static int multiplication(int a, int b){
         return a*b;
     }
     //--
-    public static float average(float a, float b){
+
+    public static double average(double a, double b){
         return ((a+b)/2);
     }
     public static int average(int a, int b) {
         return ((a + b) / 2);
     }
     //--
-    public static float larger(float a, float b){
-        float largest = 0;
+
+    public static double larger(double a, double b){
+        double largest = 0;
 
         if ( a > b)
             largest = a;
@@ -59,7 +67,18 @@ public class MathLab {
         return largest;
     }
     //--
-    public boolean isDivisible(float a, float b){
+    public static String concat(String a, String b)
+    {
+        String result = (a + "" + b);
+        return result;
+    }
+    //--
+    public static double percent(double a, double b)
+    {
+        return ((a * 100) / b);
+    }
+    //--
+    public static boolean isDivisible(double a, double b){
 
         boolean choice;
 
@@ -70,4 +89,5 @@ public class MathLab {
 
         return choice;
     }
+
 }

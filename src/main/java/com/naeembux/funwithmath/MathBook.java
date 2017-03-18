@@ -101,136 +101,96 @@ public class MathBook extends JFrame implements ActionListener
         exitBtn.addActionListener(this);
 
     }
+
     public void actionPerformed(ActionEvent e)
     {
-        if (e.getSource() == addBtn)
+        try {
+
+
+            if (e.getSource() == addBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+
+                    double num1 = Double.parseDouble(num1Txt.getText());
+                    double num2 = Double.parseDouble(num2Txt.getText());
+
+                    double result = MathLab.addition(num1, num2);
+                    resultTxt.setText(Double.toString(result));
+                }
+
+
+            } else if (e.getSource() == subtractBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+                    double num1 = Float.parseFloat(num1Txt.getText());
+                    double num2 = Float.parseFloat(num2Txt.getText());
+
+                    double result = MathLab.subtraction(num1, num2);
+                    resultTxt.setText(Double.toString(result));
+                }
+            } else if (e.getSource() == multiplyBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+                    double num1 = Double.parseDouble(num1Txt.getText());
+                    double num2 = Double.parseDouble(num2Txt.getText());
+
+                    double result = MathLab.multiplication(num1, num2);
+                    resultTxt.setText(Double.toString(result));
+                }
+
+            } else if (e.getSource() == divisionBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+                    double num1 = Float.parseFloat(num1Txt.getText());
+                    double num2 = Float.parseFloat(num2Txt.getText());
+
+                    double result = MathLab.division(num1, num2);
+                    resultTxt.setText(Double.toString(result));
+                }
+            } else if (e.getSource() == isDivBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+
+                }
+            } else if (e.getSource() == concatBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+
+                }
+            } else if (e.getSource() == medianBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+
+                }
+            } else if (e.getSource() == percentBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+
+                }
+            } else if (e.getSource() == largerBtn) {
+                if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty())) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+                } else {
+
+                }
+            } else if (e.getSource() == clearBtn) {
+                num1Txt.setText("");
+                num2Txt.setText("");
+                resultTxt.setText("");
+            } else if (e.getSource() == exitBtn) {
+                System.exit(0);
+            }
+        }catch (Exception exc)
         {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-
-                float num1 = Float.parseFloat(num1Txt.getText());
-                float num2 = Float.parseFloat(num2Txt.getText());
-
-                float result = MathLab.addition(num1, num2);
-                resultTxt.setText(Float.toString(result));
-            }
-
-
-        }
-        else if (e.getSource() == subtractBtn)
-        {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-                float num1 = Float.parseFloat(num1Txt.getText());
-                float num2 = Float.parseFloat(num2Txt.getText());
-
-                float result = MathLab.subtraction(num1, num2);
-                resultTxt.setText(Float.toString(result));
-            }
-        }
-        else if (e.getSource() == multiplyBtn)
-        {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-                float num1 = Float.parseFloat(num1Txt.getText());
-                float num2 = Float.parseFloat(num2Txt.getText());
-
-                float result = MathLab.multiplication(num1, num2);
-                resultTxt.setText(Float.toString(result));
-            }
-
-        }
-        else if (e.getSource() == divisionBtn)
-        {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-                float num1 = Float.parseFloat(num1Txt.getText());
-                float num2 = Float.parseFloat(num2Txt.getText());
-
-                float result = MathLab.division(num1, num2);
-                resultTxt.setText(Float.toString(result));
-            }
-        }
-        else if (e.getSource() == isDivBtn)
-        {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-
-            }
-        }
-        else if (e.getSource() == concatBtn)
-        {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-
-            }
-        }
-        else if (e.getSource() == medianBtn)
-        {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-
-            }
-        }
-        else if (e.getSource() == percentBtn)
-        {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-
-            }
-        }
-        else if (e.getSource() == largerBtn)
-        {
-            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
-            {
-                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
-            }
-            else
-            {
-
-            }
-        }
-        else if (e.getSource() == clearBtn)
-        {
-            num1Txt.setText("");
-            num2Txt.setText("");
-            resultTxt.setText("");
-        }
-        else if (e.getSource() == exitBtn)
-        {
-            System.exit(0);
+            JOptionPane.showMessageDialog(null, "Oops. Please enter a number");
         }
     }
 
