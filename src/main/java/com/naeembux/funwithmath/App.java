@@ -16,7 +16,9 @@ public class App
 
                 MathBook math = new MathBook("Fun with Math");
                 math.setDefaultLookAndFeelDecorated(true);
-                math.setSize(300, 300);
+                math.setSize(780, 150);
+                math.setResizable(false);
+
                 math.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 math.setVisible(true);
             }

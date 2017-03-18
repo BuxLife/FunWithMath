@@ -1,5 +1,4 @@
 /*Developed By Naeem Bux*/
-
 package com.naeembux.funwithmath;
 
 import javax.swing.*;
@@ -13,6 +12,7 @@ public class MathBook extends JFrame implements ActionListener
     private JTextField num1Txt = new JTextField(10);
     private JTextField num2Txt = new JTextField(10);
     private JTextField resultTxt = new JTextField(10);
+    private final JTextArea descriptionTxt = new JTextArea();
 
     /*Panels*/
     private JPanel textPanel = new JPanel();
@@ -29,21 +29,30 @@ public class MathBook extends JFrame implements ActionListener
     private JButton concatBtn  = new JButton ("Concatenate");
     private JButton medianBtn = new JButton ("Median");
     private JButton percentBtn = new JButton ("Percentage");
+    private JButton calculateBtn = new JButton ("Calculate");
     private JButton exitBtn = new JButton ("Exit");
+    private JButton clearBtn = new JButton ("Clear");
+
     /*Labels*/
-    private JLabel mathLbl = new JLabel("IMG");
-    private JLabel resultLbl = new JLabel("Answer");
+    private JLabel num1Lbl = new JLabel("1st Number");
+    private JLabel num2Lbl = new JLabel("2nd Number");
+    private JLabel mathLbl = new JLabel(".");
+    private JLabel resultLbl = new JLabel("=");
+
 
     public MathBook(String title)
     {
         super(title);
 
-        setLayout(new GridLayout(2,2));
-        textPanel.setLayout(new GridLayout(4,2));
-        controlPanel.setLayout(new GridLayout(5, 2));
-        buttonPanel.setLayout(new FlowLayout());
+        /*Layout*/
+        setLayout(new BorderLayout());
+        add(textPanel, BorderLayout.CENTER);
+        add(controlPanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.EAST);
 
-        /*Initialize*/
+        /*Control Panel*/
+        controlPanel.setBorder(BorderFactory.createTitledBorder("Mathematics Operations"));
+        controlPanel.setLayout(new GridBagLayout());
         controlPanel.add(addBtn);
         controlPanel.add(subtractBtn);
         controlPanel.add(divisionBtn);
@@ -53,31 +62,41 @@ public class MathBook extends JFrame implements ActionListener
         controlPanel.add(concatBtn);
         controlPanel.add(medianBtn);
         controlPanel.add(percentBtn);
-        buttonPanel.add(exitBtn);
 
+        /*Text Panel*/
+        textPanel.setBorder(BorderFactory.createTitledBorder("Current Operation"));
+        textPanel.setLayout(new GridBagLayout());
+        textPanel.add(num1Lbl);
         textPanel.add(num1Txt);
         textPanel.add(mathLbl);
+        textPanel.add(num2Lbl);
         textPanel.add(num2Txt);
         textPanel.add(resultLbl);
         textPanel.add(resultTxt);
+        textPanel.add(descriptionTxt);
+        /*Button Panel*/
+        buttonPanel.setBorder(BorderFactory.createTitledBorder("Options"));
+        buttonPanel.setLayout(new GridBagLayout());
+        buttonPanel.add(calculateBtn);
+        buttonPanel.add(clearBtn);
+        buttonPanel.add(exitBtn);
 
-        add(textPanel);
-        add(controlPanel);
-        add(buttonPanel);
-        /*Assign ActionListeners*/
+
+        /*ActionListeners*/
         addBtn.addActionListener(this);
         subtractBtn.addActionListener(this);
         divisionBtn.addActionListener(this);
         multiplyBtn.addActionListener(this);
+
         largerBtn.addActionListener(this);
         isDivBtn.addActionListener(this);
         concatBtn.addActionListener(this);
         medianBtn.addActionListener(this);
         percentBtn.addActionListener(this);
+
         exitBtn.addActionListener(this);
 
     }
-
     public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == addBtn)
@@ -122,5 +141,51 @@ public class MathBook extends JFrame implements ActionListener
             System.exit(0);
         }
     }
+
+    public int addition(int a, int b)
+    {
+        return a + b;
+    }
+
+    public int subtraction(int a, int b)
+    {
+        return a-b;
+    }
+    public float division(int a, int b)
+    {
+        return a/b;
+    }
+    public int multiplication(int a, int b)
+    {
+        return a*b;
+    }
+    public int average(int a, int b)
+    {
+        return ((a+b)/2);
+    }
+    public int larger(int a, int b)
+    {
+        int largest = 0;
+
+        if ( a > b)
+            largest = a;
+        else if (b > a)
+            largest = b;
+
+        return largest;
+    }
+
+    public boolean isDivisible(int a, int b)
+    {
+        boolean choice;
+
+        if ((a % b) == 0)
+            choice = true;
+        else
+            choice = false;
+
+        return choice;
+    }
+
 }
 
