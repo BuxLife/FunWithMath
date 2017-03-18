@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class MathBook extends JFrame implements ActionListener
 {
     /*TextFields*/
@@ -29,14 +30,12 @@ public class MathBook extends JFrame implements ActionListener
     private JButton concatBtn  = new JButton ("Concatenate");
     private JButton medianBtn = new JButton ("Median");
     private JButton percentBtn = new JButton ("Percentage");
-    private JButton calculateBtn = new JButton ("Calculate");
     private JButton exitBtn = new JButton ("Exit");
     private JButton clearBtn = new JButton ("Clear");
 
     /*Labels*/
     private JLabel num1Lbl = new JLabel("1st Number");
     private JLabel num2Lbl = new JLabel("2nd Number");
-    private JLabel mathLbl = new JLabel(".");
     private JLabel resultLbl = new JLabel("=");
 
 
@@ -53,6 +52,7 @@ public class MathBook extends JFrame implements ActionListener
         /*Control Panel*/
         controlPanel.setBorder(BorderFactory.createTitledBorder("Mathematics Operations"));
         controlPanel.setLayout(new GridBagLayout());
+
         controlPanel.add(addBtn);
         controlPanel.add(subtractBtn);
         controlPanel.add(divisionBtn);
@@ -63,21 +63,24 @@ public class MathBook extends JFrame implements ActionListener
         controlPanel.add(medianBtn);
         controlPanel.add(percentBtn);
 
+
         /*Text Panel*/
         textPanel.setBorder(BorderFactory.createTitledBorder("Current Operation"));
         textPanel.setLayout(new GridBagLayout());
+
         textPanel.add(num1Lbl);
         textPanel.add(num1Txt);
-        textPanel.add(mathLbl);
         textPanel.add(num2Lbl);
         textPanel.add(num2Txt);
         textPanel.add(resultLbl);
         textPanel.add(resultTxt);
         textPanel.add(descriptionTxt);
+        resultTxt.setEditable(false);
+
         /*Button Panel*/
         buttonPanel.setBorder(BorderFactory.createTitledBorder("Options"));
         buttonPanel.setLayout(new GridBagLayout());
-        buttonPanel.add(calculateBtn);
+
         buttonPanel.add(clearBtn);
         buttonPanel.add(exitBtn);
 
@@ -94,6 +97,7 @@ public class MathBook extends JFrame implements ActionListener
         medianBtn.addActionListener(this);
         percentBtn.addActionListener(this);
 
+        clearBtn.addActionListener(this);
         exitBtn.addActionListener(this);
 
     }
@@ -101,40 +105,128 @@ public class MathBook extends JFrame implements ActionListener
     {
         if (e.getSource() == addBtn)
         {
-            mathLbl.setText("+");
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
+
+                float num1 = Float.parseFloat(num1Txt.getText());
+                float num2 = Float.parseFloat(num2Txt.getText());
+
+                float result = MathLab.addition(num1, num2);
+                resultTxt.setText(Float.toString(result));
+            }
+
+
         }
         else if (e.getSource() == subtractBtn)
         {
-            mathLbl.setText("-");
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
+                float num1 = Float.parseFloat(num1Txt.getText());
+                float num2 = Float.parseFloat(num2Txt.getText());
+
+                float result = MathLab.subtraction(num1, num2);
+                resultTxt.setText(Float.toString(result));
+            }
         }
         else if (e.getSource() == multiplyBtn)
         {
-            mathLbl.setText("*");
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
+                float num1 = Float.parseFloat(num1Txt.getText());
+                float num2 = Float.parseFloat(num2Txt.getText());
+
+                float result = MathLab.multiplication(num1, num2);
+                resultTxt.setText(Float.toString(result));
+            }
 
         }
         else if (e.getSource() == divisionBtn)
         {
-            mathLbl.setText("/");
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
+                float num1 = Float.parseFloat(num1Txt.getText());
+                float num2 = Float.parseFloat(num2Txt.getText());
+
+                float result = MathLab.division(num1, num2);
+                resultTxt.setText(Float.toString(result));
+            }
         }
         else if (e.getSource() == isDivBtn)
         {
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
 
+            }
         }
         else if (e.getSource() == concatBtn)
         {
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
 
+            }
         }
         else if (e.getSource() == medianBtn)
         {
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
 
+            }
         }
         else if (e.getSource() == percentBtn)
         {
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
 
+            }
         }
         else if (e.getSource() == largerBtn)
         {
+            if ((num1Txt.getText().isEmpty()) || (num2Txt.getText().isEmpty()))
+            {
+                JOptionPane.showMessageDialog(null, "Fields cannot be left Blank.");
+            }
+            else
+            {
 
+            }
+        }
+        else if (e.getSource() == clearBtn)
+        {
+            num1Txt.setText("");
+            num2Txt.setText("");
+            resultTxt.setText("");
         }
         else if (e.getSource() == exitBtn)
         {
@@ -142,50 +234,7 @@ public class MathBook extends JFrame implements ActionListener
         }
     }
 
-    public int addition(int a, int b)
-    {
-        return a + b;
-    }
 
-    public int subtraction(int a, int b)
-    {
-        return a-b;
-    }
-    public float division(int a, int b)
-    {
-        return a/b;
-    }
-    public int multiplication(int a, int b)
-    {
-        return a*b;
-    }
-    public int average(int a, int b)
-    {
-        return ((a+b)/2);
-    }
-    public int larger(int a, int b)
-    {
-        int largest = 0;
-
-        if ( a > b)
-            largest = a;
-        else if (b > a)
-            largest = b;
-
-        return largest;
-    }
-
-    public boolean isDivisible(int a, int b)
-    {
-        boolean choice;
-
-        if ((a % b) == 0)
-            choice = true;
-        else
-            choice = false;
-
-        return choice;
-    }
 
 }
 
