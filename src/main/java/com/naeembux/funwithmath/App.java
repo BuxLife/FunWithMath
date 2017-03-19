@@ -15,7 +15,7 @@ public class App
             public void run() {
 
                 MathBook math = new MathBook("Fun with Math");
-                math.setDefaultLookAndFeelDecorated(true);
+                JFrame.setDefaultLookAndFeelDecorated(true);
                 math.setSize(780, 150);
                 math.setResizable(false);
 

@@ -82,10 +82,7 @@ public class MathLab {
 
         boolean choice;
 
-        if ((a % b) == 0)
-            choice = true;
-        else
-            choice = false;
+        choice = (a % b) == 0;
 
         return choice;
     }
